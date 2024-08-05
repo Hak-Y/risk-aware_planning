@@ -1,0 +1,24 @@
+<launch>
+  <!-- Data source Data -->
+  <arg name="target_directory" default="/home/yi/Documents/Record/20240716_053249" />
+  <arg name="create_meshes" default="true"/>
+  <arg name="error_histogram" default="true"/>
+  <arg name="evaluate" default="true"/>
+  <arg name="evaluate_volume" default="true"/>
+  <arg name="truncation_distance" default="0.0"/>
+  <arg name="mesh_every_n_steps" default="1"/>
+
+  <!-- Evaluation node -->
+  <node name="eval_voxblox_node" pkg="active_3d_planning_app_reconstruction" type="eval_voxblox_node" output="screen">
+    <param name="ground_truth_path" value="/home/yi/output.ply" />
+    <param name="create_meshes" value="$(arg create_meshes)" />
+    <param name="error_histogram" value="$(arg error_histogram)" />
+    <param name="evaluate" value="$(arg evaluate)" />
+    <param name="evaluate_volume" value="$(arg evaluate_volume)" />
+    <param name="truncation_distance" value="$(arg truncation_distance)" />
+    <param name="mesh_every_n_steps" value="$(arg mesh_every_n_steps)" />
+    <param name="target_directory" value="$(arg target_directory)" />
+    <rosparam command="load" file="$(find active_3d_planning_app_reconstruction)/cfg/experiments/uncertainty.yaml"/>
+  </node>
+</launch>
+

@@ -1,0 +1,9 @@
+<launch>
+<arg name="image_topic" default="/airsim_node/PX4/depth_cam/DepthPerspective"/>
+
+  <!-- Run depth_image_proc -->
+  <node pkg="image_pipeline" type="point_cloud_xyz" name="point_cloud_xyz" output="screen">
+    <remap from="image" to="$(arg image_topic)"/>
+  </node>
+
+</launch>

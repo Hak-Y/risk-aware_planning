@@ -1,0 +1,42 @@
+<launch>
+
+  <!-- Voxblox arguments -->
+  <arg name="voxel_size" default="0.25"/>
+  <arg name="voxels_per_side" default="16"/>
+  <arg name="verbose_voxblox" default="true"/>
+  <arg name="verbose_planner" default="true"/>
+    
+  <!--  Planner arguments-->
+  <arg name="planner_config" default="planners/uncertainty_planner.yaml"/>
+  
+  <!--  Experiment arguments -->  
+  <arg name="experiment_config" default="uncertainty.yaml"/>
+  
+    
+  <rosparam command="load" file="$(find active_3d_planning_app_reconstruction)/cfg/experiments/$(arg experiment_config)"/>
+
+  <group ns="planner">
+    <node name="planner_node" pkg="active_3d_planning_app_reconstruction" type="reconstruction_planner_node" output="screen">
+		  <!-- Voxblox Server --> 
+      <!-- <remap from="planner_node/esdf_map_in" to="voxblox_node/esdf_map_out" /> -->
+      <remap from="planner_node/uncertainty_map_in" to="voxblox_node/uncertainty_map_out" />
+      <remap from="planner_node/tsdf_map_in" to="voxblox_node/tsdf_map_out" />
+      <param name="use_tf_transforms" value="true" />
+      <param name="tsdf_voxel_size" value="$(arg voxel_size)" />
+      <param name="tsdf_voxels_per_side" value="$(arg voxels_per_side)" />
+      <param name="update_mesh_every_n_sec" value="0.0" />   
+      <param name="publish_traversable" value="false" />    
+      <param name="publish_pointclouds" value="false" />
+      <param name="verbose" value="$(arg verbose_planner)" /> 
+      <param name="world_frame" value="odom" />
+    
+    	<!-- General Settings -->
+      <remap from="odometry" to="/mavros/local_position/odom"/>
+      <remap from="command/trajectory" to="/mavros/setpoint_trajectory/local" />
+
+      <!-- Build the Planner by Configuration     -->
+      <rosparam command="load" file="$(find active_3d_planning_app_reconstruction)/cfg/$(arg planner_config)"/>
+    </node>    
+  </group>
+
+</launch>

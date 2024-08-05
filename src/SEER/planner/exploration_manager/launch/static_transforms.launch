@@ -1,0 +1,6 @@
+<launch>
+	<!-- <node pkg="tf" type="static_transform_publisher" name="c2b" args="-0.5 0 -0.1 0 0 0 1 camera_link base_link  30"/> -->
+	<node pkg="tf" type="static_transform_publisher" name="b2c" args="0.5 0 0.1 0 0 0 1 base_link camera_link 30"/>
+	<!-- <node pkg="tf" type="static_transform_publisher" name="map_to_rtab_map" args="0 0 0 0 0 0 1 rtab_map map  30"/> -->
+	<!-- <node pkg="tf" type="static_transform_publisher" name="rtab_map_to_rtab_odom" args="0 0 0 0 0 0 1 map odom 30"/> -->
+</launch>

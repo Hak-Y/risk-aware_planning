@@ -1,0 +1,78 @@
+<launch>
+  <!-- Gazebo arguments -->
+  <arg name="mav_name" default="firefly"/>
+  <arg name="gui" default="false"/>
+  <arg name="verbose_gazebo" default="false"/>
+
+  <!-- Voxblox arguments -->
+  <arg name="voxel_size" default="0.25"/>
+  <arg name="voxels_per_side" default="16"/>
+  <arg name="ray_length" default="9.0"/>
+  <arg name="method" default="merged"/>
+  <arg name="verbose_voxblox" default="false"/>
+  <arg name="verbose_planner" default="false"/>
+
+    
+  <!-- Unreal Routine arguments -->
+  <arg name="uecv_mode" default="fast"/>
+  <arg name="slowdown" default="0.0"/>
+  <arg name="delay" default="3.0"/>  
+  
+  <!-- Unreal Sensor arguments (ground_truth, kinect, gaussian_depth_noise) -->
+  <arg name="model_type" default="gaussian_depth_noise"/>
+  <arg name="flatten_distance" default="6.0"/>
+  <arg name="maximum_distance" default="0.0"/>
+  
+  <!-- Odometry  arguments (random_walk, ground_truth) -->
+  <arg name="odom_noise_model" default="random_walk"/>
+  
+  <!--  Planner arguments-->
+  <arg name="planner_config" default="planners/uncertainty_planner.yaml"/>
+  
+  <!--  Experiment arguments -->  
+  <arg name="experiment_config" default="uncertainty.yaml"/>
+  <arg name="record_data" default="true"/>
+  <arg name="record_visualization" default="true"/>
+  <arg name="data_directory" default="/home/yi/Documents/Record"/>
+  <arg name="data_frequency" default="30.0" />
+  <arg name="time_limit" default="30" />  
+
+  <rosparam command="load" file="$(find active_3d_planning_app_reconstruction)/cfg/experiments/$(arg experiment_config)"/>
+
+  
+  <group ns="planner">
+    <!-- Voxblox -->
+    <node name="voxblox_node" pkg="voxblox_ros" type="uncertainty_server" output="screen" args="-alsologtostderr">
+      <remap from="pointcloud" to="/camera/depth/image_raw/points"/>
+      <param name="use_tf_transforms" value="true"/>
+      <remap from="transform" to="/mavros/local_position/odom"/>
+      <param name="publish_tsdf_map" value="true" />
+      <param name="publish_uncertainty_map" value="true" />
+      <param name="tsdf_voxel_size" value="$(arg voxel_size)" />
+      <param name="tsdf_voxels_per_side" value="$(arg voxels_per_side)" />
+      <param name="color_mode" value="color" />
+      <param name="update_mesh_every_n_sec" value="1.0" />
+      <param name="method" value="$(arg method)" />
+      <param name="max_ray_length" value="$(arg ray_length)" />
+      <param name="allow_clear" value="true" />
+      <param name="verbose" value="$(arg verbose_voxblox)" />
+      <param name="world_frame" value="odom" />
+    </node>
+  </group>
+  
+    <node name="eval_data_node" pkg="active_3d_planning_app_reconstruction" type="eval_data_node.py" output="screen" required="true">
+      <remap from="ue_out_in" to="unreal_sensor_model/ue_sensor_out" />
+      <remap from="unreal_simulation_ready" to="simulation_manager/simulation_ready" />
+      <remap from="collision" to="unreal_ros_client/collision" />
+      <param name="ns_planner" value="/planner/planner_node" />
+      <param name="ns_voxblox" value="/planner/voxblox_node" />
+      <param name="delay" value="$(arg delay)" />
+      <param name="startup_timeout" value="30.0" />
+      <param name="evaluate" value="$(arg record_data)" />
+      <param name="eval_directory" value="$(arg data_directory)" />
+      <param name="eval_frequency" value="$(arg data_frequency)" />
+      <param name="time_limit" value="$(arg time_limit)" />
+    </node>
+
+   
+</launch>

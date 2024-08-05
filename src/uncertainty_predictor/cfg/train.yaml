@@ -1,0 +1,5 @@
+min_points : 5
+min_viewpoint : 5
+num_voxel_per_data : 20
+batch_size : 4
+min_num_voxel_per_view : 5
