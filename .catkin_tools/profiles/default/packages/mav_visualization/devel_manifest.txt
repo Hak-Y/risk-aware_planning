@@ -1,0 +1,8 @@
+mav_trajectory_generation/mav_visualization
+/home/risk-aware_planning/devel/.private/mav_visualization/cmake.lock /home/risk-aware_planning/devel/./cmake.lock
+/home/risk-aware_planning/devel/.private/mav_visualization/lib/libmav_visualization.so /home/risk-aware_planning/devel/lib/libmav_visualization.so
+/home/risk-aware_planning/devel/.private/mav_visualization/lib/mav_visualization/leica_publisher /home/risk-aware_planning/devel/lib/mav_visualization/leica_publisher
+/home/risk-aware_planning/devel/.private/mav_visualization/lib/mav_visualization/hexacopter_publisher /home/risk-aware_planning/devel/lib/mav_visualization/hexacopter_publisher
+/home/risk-aware_planning/devel/.private/mav_visualization/lib/pkgconfig/mav_visualization.pc /home/risk-aware_planning/devel/lib/pkgconfig/mav_visualization.pc
+/home/risk-aware_planning/devel/.private/mav_visualization/share/mav_visualization/cmake/mav_visualizationConfig-version.cmake /home/risk-aware_planning/devel/share/mav_visualization/cmake/mav_visualizationConfig-version.cmake
+/home/risk-aware_planning/devel/.private/mav_visualization/share/mav_visualization/cmake/mav_visualizationConfig.cmake /home/risk-aware_planning/devel/share/mav_visualization/cmake/mav_visualizationConfig.cmake

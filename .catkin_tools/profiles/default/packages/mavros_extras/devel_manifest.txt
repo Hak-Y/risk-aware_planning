@@ -1,0 +1,8 @@
+mavros/mavros_extras
+/home/risk-aware_planning/devel/.private/mavros_extras/cmake.lock /home/risk-aware_planning/devel/./cmake.lock
+/home/risk-aware_planning/devel/.private/mavros_extras/lib/libmavros_extras.so /home/risk-aware_planning/devel/lib/libmavros_extras.so
+/home/risk-aware_planning/devel/.private/mavros_extras/lib/mavros_extras/visualization /home/risk-aware_planning/devel/lib/mavros_extras/visualization
+/home/risk-aware_planning/devel/.private/mavros_extras/lib/mavros_extras/servo_state_publisher /home/risk-aware_planning/devel/lib/mavros_extras/servo_state_publisher
+/home/risk-aware_planning/devel/.private/mavros_extras/lib/pkgconfig/mavros_extras.pc /home/risk-aware_planning/devel/lib/pkgconfig/mavros_extras.pc
+/home/risk-aware_planning/devel/.private/mavros_extras/share/mavros_extras/cmake/mavros_extrasConfig-version.cmake /home/risk-aware_planning/devel/share/mavros_extras/cmake/mavros_extrasConfig-version.cmake
+/home/risk-aware_planning/devel/.private/mavros_extras/share/mavros_extras/cmake/mavros_extrasConfig.cmake /home/risk-aware_planning/devel/share/mavros_extras/cmake/mavros_extrasConfig.cmake

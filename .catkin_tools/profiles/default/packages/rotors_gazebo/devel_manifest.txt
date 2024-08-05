@@ -1,0 +1,8 @@
+rotors_simulator/rotors_gazebo
+/home/risk-aware_planning/devel/.private/rotors_gazebo/cmake.lock /home/risk-aware_planning/devel/./cmake.lock
+/home/risk-aware_planning/devel/.private/rotors_gazebo/lib/rotors_gazebo/waypoint_publisher_file /home/risk-aware_planning/devel/lib/rotors_gazebo/waypoint_publisher_file
+/home/risk-aware_planning/devel/.private/rotors_gazebo/lib/rotors_gazebo/hovering_example /home/risk-aware_planning/devel/lib/rotors_gazebo/hovering_example
+/home/risk-aware_planning/devel/.private/rotors_gazebo/lib/rotors_gazebo/waypoint_publisher /home/risk-aware_planning/devel/lib/rotors_gazebo/waypoint_publisher
+/home/risk-aware_planning/devel/.private/rotors_gazebo/lib/pkgconfig/rotors_gazebo.pc /home/risk-aware_planning/devel/lib/pkgconfig/rotors_gazebo.pc
+/home/risk-aware_planning/devel/.private/rotors_gazebo/share/rotors_gazebo/cmake/rotors_gazeboConfig.cmake /home/risk-aware_planning/devel/share/rotors_gazebo/cmake/rotors_gazeboConfig.cmake
+/home/risk-aware_planning/devel/.private/rotors_gazebo/share/rotors_gazebo/cmake/rotors_gazeboConfig-version.cmake /home/risk-aware_planning/devel/share/rotors_gazebo/cmake/rotors_gazeboConfig-version.cmake
