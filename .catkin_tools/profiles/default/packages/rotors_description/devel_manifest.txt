@@ -1,0 +1,5 @@
+rotors_simulator/rotors_description
+/home/risk-aware_planning/devel/.private/rotors_description/cmake.lock /home/risk-aware_planning/devel/./cmake.lock
+/home/risk-aware_planning/devel/.private/rotors_description/lib/pkgconfig/rotors_description.pc /home/risk-aware_planning/devel/lib/pkgconfig/rotors_description.pc
+/home/risk-aware_planning/devel/.private/rotors_description/share/rotors_description/cmake/rotors_descriptionConfig-version.cmake /home/risk-aware_planning/devel/share/rotors_description/cmake/rotors_descriptionConfig-version.cmake
+/home/risk-aware_planning/devel/.private/rotors_description/share/rotors_description/cmake/rotors_descriptionConfig.cmake /home/risk-aware_planning/devel/share/rotors_description/cmake/rotors_descriptionConfig.cmake
